@@ -10,9 +10,7 @@ body {
 	font-family: "Franklin Gothic Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	min-height: 100vh;
 	overflow: hidden;
-	/* color: #57585c;
-	color: var(--color-text); */
-	background:  linear-gradient(to right, #ffffff, #dcf1dc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background:  white; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	background-color: var(--color-bg);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -32,6 +30,8 @@ body {
 	width: 100vw;
 	height: 100vh;
 	color: #fff;
+	display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -77,4 +77,9 @@ a:focus {
 }
 .button:hover::before {
   --size: 400px;
+}
+
+.hospital-icon{
+	width: 150px;
+	height: 150px;
 }

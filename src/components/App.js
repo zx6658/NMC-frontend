@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Word from './Word';
 import ListenerButton from './ListenerButton';
-
+import HospitalImage from '../assets/hospital.png';
+import IconImage from '../assets/icon.png';
 import '../css/App.css';
 
 class App extends Component {
@@ -49,6 +50,7 @@ class App extends Component {
     this.recognition.onstart = () => {
       this.setState({
         listening: true,
+        text: "",
       });
     };
 
@@ -87,6 +89,8 @@ class App extends Component {
   render() {
     return (
       <main className="demo-1">
+      <img src={IconImage} alt="icon" className="icon"/>
+      <img src={HospitalImage} alt="hospital" className="hospital-icon"/>
         {this.state.show && this.state.text.length >0 ? (
           <Word text={this.state.text} onClose={this.handleClose} />
         ) : (
