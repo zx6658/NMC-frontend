@@ -8,7 +8,7 @@ class App extends Component {
   state = {
     show: false,
     listening: false,
-    text: "Sorry, can't hear",
+    text: "",
   };
 
   componentDidMount() {
@@ -87,7 +87,7 @@ class App extends Component {
   render() {
     return (
       <main className="demo-1">
-        {this.state.show ? (
+        {this.state.show && this.state.text.length >0 ? (
           <Word text={this.state.text} onClose={this.handleClose} />
         ) : (
           <ListenerButton
@@ -95,7 +95,7 @@ class App extends Component {
             onEnd={this.end}
             disabled={this.state.listening}
             buttonText={
-              this.state.listening ? 'Listening...' : 'Click me to listen'
+              this.state.listening ? '말해주세요!' : '여기를 눌러 병원에 대해 궁금한 것을 말해주세요!'
             }
           />
         )}
