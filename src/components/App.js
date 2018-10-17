@@ -23,7 +23,7 @@ class App extends Component {
     }
 
     this.recognition = new Recognition();
-    this.recognition.lang = process.env.REACT_APP_LANGUAGE || 'en-US';
+    this.recognition.lang = 'ko-KR';
     this.recognition.continuous = false;
     this.recognition.interimResults = false;
     this.recognition.maxAlternatives = 1;
@@ -36,14 +36,14 @@ class App extends Component {
     };
 
     this.recognition.onspeechend = () => {
-      console.log('stopped');
+      console.log('끝');
 
       this.setState({ show: true });
     };
 
     this.recognition.onnomatch = event => {
       console.log('no match');
-      this.setState({ text: "Sorry, can't hear" });
+      this.setState({ text: "들을 수 없습니다! 다시 말해주세요!" });
     };
 
     this.recognition.onstart = () => {
