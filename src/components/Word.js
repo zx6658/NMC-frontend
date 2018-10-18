@@ -23,7 +23,6 @@ class Word extends React.Component {
   render() {
     const { number } = this.state;
     const { text } = this.props;
-    console.log(text);
     return (
       <div className="slideshow">
         <a className="button close" onClick={this.props.onClose}>
@@ -40,8 +39,10 @@ class Word extends React.Component {
         <div className="slide slide--current">
           <div className={`slide__bg slide__bg--1`} />
           <h2 className={`word word--${number} word--question`}>Q) {text}</h2>
+          {/* 일단은 더미데이터로 예상 질문들 만들어보기 */}
           {text =='병원이 어디예요' && <div className={`word word--answer`}>A) 서울시 서초구 강남동입니다</div>}
           {(text.indexOf('고장') > 0) && <div className={`word word--answer`}>A) 접수되었습니다. </div>}
+          {(text.indexOf('중환자실') >= 0) && (text.indexOf('층') >= 0) && <div className={`word word--answer`}> 3층입니다. </div>}
         </div>
         
       </div>
