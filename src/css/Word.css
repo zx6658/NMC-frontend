@@ -1,4 +1,8 @@
 
+.hospitalInfo--vedio{
+position: relative;
+}
+
 /* Slideshow */
 .slideshow {
 	position: absolute;
