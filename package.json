@@ -2,7 +2,7 @@
   "name": "web-speech-example",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://fresh-web.github.io/web-speech",
+  "homepage": "https://zx6658.github.io/NMC-frontend",
   "dependencies": {
     "animejs": "^2.2.0",
     "autoprefixer": "7.1.6",
