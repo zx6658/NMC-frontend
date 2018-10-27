@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Slideshow from '../lib/Slideshow';
-
+import  nmcApi from '../api';
 import '../css/Word.css';
 
 class Word extends React.Component {
@@ -18,6 +18,10 @@ class Word extends React.Component {
         const slideshow = new Slideshow(document.querySelector('.slideshow'));
       }
     );
+  }
+
+  getAnswer = async (question) => {
+      const answer = await nmcApi.getAnswer(question);
   }
 
   render() {
