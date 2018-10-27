@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import  { nmcApi } from '../api';
 import Word from './Word';
 import ListenerButton from './ListenerButton';
 import HospitalImage from '../assets/hospital.png';
@@ -10,9 +12,11 @@ class App extends Component {
     show: false,
     listening: false,
     text: "",
+    answer: "",
   };
 
   componentDidMount() {
+    this.getAnswer();
     const Recognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -74,6 +78,11 @@ class App extends Component {
     };
   }
 
+  getAnswer = async (question) => {
+      const answer = await nmcApi.getAnswer("hi");
+      this.setState({answer});
+  }
+
   start = () => {
     this.recognition.start();
   };
@@ -87,12 +96,14 @@ class App extends Component {
   };
 
   render() {
+    const { show, answer, text } = this.state;
+   
     return (
       <main className="demo-1">
       <img src={IconImage} alt="icon" className="icon"/>
       <img src={HospitalImage} alt="hospital" className="hospital-icon"/>
-        {this.state.show && this.state.text.length >0 ? (
-          <Word text={this.state.text} onClose={this.handleClose} />
+        { show && answer && text.length >0 ? (
+          <Word text={this.state.text} answer={answer} onClose={this.handleClose} />
         ) : (
           <ListenerButton
             onStart={this.start}

@@ -1,5 +1,5 @@
 const constant = {
-    apiUrl: 'localhost:3000/hovi/answer' 
+    apiUrl: 'http://localhost:3000' 
 }
 
 export default constant;
