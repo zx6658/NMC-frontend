@@ -18,7 +18,7 @@ class Nurse extends React.Component {
   
   onButtonClick = (index) => {
     if(this.state.clicked.includes(index)){
-    this.setState({clicked: [...(this.state.clicked.splice(index,1))]});
+      this.setState({clicked: [...(this.state.clicked.filter((data)=> data !== index))]});
     }else{
       this.setState({clicked: [...this.state.clicked,index]});
     }
@@ -93,6 +93,11 @@ class Nurse extends React.Component {
       <div className="nurseInfo">
       <img className="clip-icon" src={ClipImage}/>
       <div className="nurseInfo-wrapper">
+        <a href="/">
+        <button className="back-button"> 
+            뒤로가기
+          </button>
+        </a>
         <img className="nurseInfo-icon" src={IconImage} />
         <div className="button-wrapper" >
           {nurse.map((info, index)=>{
@@ -107,6 +112,10 @@ class Nurse extends React.Component {
         <button className="mic-button"> 
           <img className="mic-image" src={MicImage} />
           그 외 부탁하기
+        </button>
+        <button className="form-button"> 
+          <img className="mic-image" src={MicImage} />
+          전송하기
         </button>
       </div>
     );

@@ -73,6 +73,53 @@
     flex-direction: row;
     justify-content: center;
     margin: 10px;
+    height: 70px;
+}
+
+.form-button{
+    top: 80px;
+    position: absolute;
+    appearance: none;
+    border: black 2px solid !important;
+    background-color: white;
+    color: black ;
+    font-weight: bold;
+    padding: 1em .5em;
+    font-size: 1.2em;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    right: 0;
+    width: 180px;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+    height: 70px;
+}
+
+.back-button{
+    top: 0px;
+    position: absolute;
+    appearance: none;
+    border: black 2px solid !important;
+    background-color: white;
+    color: black ;
+    font-weight: bold;
+    padding: 1em .5em;
+    font-size: 1.2em;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    left: 0;
+    width: 180px;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+    height: 70px;
 }
 
 
