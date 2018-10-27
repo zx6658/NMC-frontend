@@ -125,14 +125,12 @@
 
 .mic-image{
     width: 30px;
+    margin-right: 4px;
 }
 
 .clip-icon{
     width: 100px;
     position: absolute;
-}
-
-.button-wrapper{
 }
 
 .active{

@@ -6,6 +6,7 @@ import Constant from '../constant';
 import IconImage from '../assets/icon.png';
 import MicImage from '../assets/microphone.png';
 import ClipImage from '../assets/clip.png';
+import SendImage from '../assets/send-button.png';
 
 class Nurse extends React.Component {
 
@@ -94,7 +95,7 @@ class Nurse extends React.Component {
       <img className="clip-icon" src={ClipImage}/>
       <div className="nurseInfo-wrapper">
         <a href="/">
-        <button className="back-button"> 
+        <button className="back-button">
             뒤로가기
           </button>
         </a>
@@ -114,8 +115,8 @@ class Nurse extends React.Component {
           그 외 부탁하기
         </button>
         <button className="form-button"> 
-          <img className="mic-image" src={MicImage} />
-          전송하기
+          <img className="mic-image" src={SendImage} />
+          전송 하기
         </button>
       </div>
     );
