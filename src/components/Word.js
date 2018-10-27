@@ -12,9 +12,9 @@ class Word extends React.Component {
   };
   
   componentDidMount() {
-    const { text } = this.props;
+    const { text, answer } = this.props;
 
-    if((text.indexOf('입원') >= 0) && (text.indexOf('교육') >= 0)){
+    if(answer.category ==="video"){
       this.setState({quizAvailable: true});
     }
 
@@ -42,11 +42,11 @@ class Word extends React.Component {
             <h2 className={`word word--${number} word--question`}>Q) {text}</h2>
             {/* 일단은 더미데이터로 예상 질문들 만들어보기 */}
             <div className={`word word--answer`}>카테고리: {answer.category}</div>
-            <div className={`word word--answer`}>A) {answer.response}</div>
+              {answer.category !=='video' && <div className={`word word--answer`}>A) {answer.response}</div>} 
               {answer.category ==='nurse' &&  <img className="hovi-icon" src={HoviIcon} />}
               { answer.category ==='video' && 
-              <iframe allowfullscreen className={`hospitalInfo--vedio`} width="912" height="513" src="https://www.youtube.com/embed/TwOB2OiqlDg?&amp;autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>}
-              { quizAvailable && <Quiz data="test"/> }
+              <iframe allowfullscreen className={`hospitalInfo--vedio`} width="912" height="513" src={`${answer.response}?&amp;autoplay=1"`} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>}
+              { quizAvailable && <Quiz data={answer.category}/> }
           </div>
         </div>
       </React.Fragment>
