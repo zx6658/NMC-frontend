@@ -1,6 +1,8 @@
 
 .hospitalInfo--vedio{
 position: relative;
+height: 300px;
+width: 100%;
 }
 
 /* Slideshow */
@@ -87,7 +89,7 @@ position: relative;
 	z-index: 100;
 }
 .word--question{
-	margin-top: 30vw;
+	margin-top: 10vw;
 }
 .word--1 {
 	font-family: 'Josefin Sans', sans-serif;

@@ -23,6 +23,7 @@ body {
 	--color-link: #fff;
 	--color-link-hover: #fff473;
 	--color-nav: #fff;
+	background-color: #007722 !important;
 	--color-bg-slide-1: linear-gradient(to right, #232526, #414345);
 	display: flex;
 	justify-content: center;
@@ -31,7 +32,23 @@ body {
 	height: 100vh;
 	color: #fff;
 	display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+.info, .nurse{
+	width: 500px;
+	background-color: white;
+	padding: 10px 10px;
+	margin: 10px 10px;
+	border-radius: 5px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.info > button{
+	width: 100%;
+}
+
+.nurse > button{
+	width: 100%;
 }
 
 a {
@@ -47,12 +64,14 @@ a:focus {
 }
 
 .button {
+  margin-top: 10px;
   position: relative;
   appearance: none;
-  background: #007722;
+  border: #007722  2px solid !important;
+  background-color: white;
+  color: black ;
+  font-weight: bold;
   padding: 1em 2em;
-  border: none;
-  color: white;
   font-size: 1.2em;
   cursor: pointer;
   outline: none;
@@ -79,7 +98,11 @@ a:focus {
   --size: 400px;
 }
 
-.hospital-icon{
+.hospital-icon, .nurse-icon{
 	width: 150px;
 	height: 150px;
+}
+
+.icon{
+	width: 200px;
 }

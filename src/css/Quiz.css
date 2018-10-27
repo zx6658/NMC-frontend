@@ -1,0 +1,21 @@
+.quiz{
+    position: relative;
+    width: 200px;
+    height: 100px;
+    z-index: 1000;
+    margin: auto;
+    background-color: white;
+    margin: auto;
+    color: black;
+    text-align: center;
+}
+
+.quiz > h5{
+    background-color: #007722;
+    color: white;
+}
+
+.quiz > button:hover{
+    background-color: #007722;
+    color: white;
+}

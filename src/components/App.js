@@ -2,21 +2,24 @@ import React, { Component } from 'react';
 
 import  { nmcApi } from '../api';
 import Word from './Word';
+import Nurse from './Nurse';
 import ListenerButton from './ListenerButton';
 import HospitalImage from '../assets/hospital.png';
 import IconImage from '../assets/icon.png';
+import NurseImage from '../assets/nurse.png';
 import '../css/App.css';
 
 class App extends Component {
   state = {
     show: false,
+    nurseShow: false,
     listening: false,
     text: "",
     answer: "",
   };
 
   componentDidMount() {
-    this.getAnswer();
+    //this.getAnswer();
     const Recognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -33,16 +36,16 @@ class App extends Component {
     this.recognition.interimResults = false;
     this.recognition.maxAlternatives = 1;
 
-    this.recognition.onresult = event => {
+    this.recognition.onresult = async event => {
       const text = event.results[0][0].transcript;
 
-      console.log('transcript', text);
-      this.setState({ text });
+      // console.log('transcript', text);
+      const answer = await this.getAnswer(text);
+      this.setState({ text: text, answer: answer });
     };
 
     this.recognition.onspeechend = () => {
       console.log('끝');
-
       this.setState({ show: true });
     };
 
@@ -79,8 +82,8 @@ class App extends Component {
   }
 
   getAnswer = async (question) => {
-      const answer = await nmcApi.getAnswer("hi");
-      this.setState({answer});
+      const answer = await nmcApi.getAnswer(question);
+      return answer;
   }
 
   start = () => {
@@ -96,25 +99,39 @@ class App extends Component {
   };
 
   render() {
-    const { show, answer, text } = this.state;
+    const { show, nurseShow, answer, text } = this.state;
    
     return (
       <main className="demo-1">
-      <img src={IconImage} alt="icon" className="icon"/>
-      <img src={HospitalImage} alt="hospital" className="hospital-icon"/>
-        { show && answer && text.length >0 ? (
-          <Word text={this.state.text} answer={answer} onClose={this.handleClose} />
-        ) : (
-          <ListenerButton
-            onStart={this.start}
-            onEnd={this.end}
-            disabled={this.state.listening}
-            buttonText={
-              this.state.listening ? '말해주세요!' : '여기를 눌러 병원에 대해 궁금한 것을 말해주세요!'
-            }
-          />
-        )}
+        <div className="info">
+          <img src={IconImage} alt="icon" className="icon"/>
+          <img src={HospitalImage} alt="hospital" className="hospital-icon"/>
+            { show && text.length > 0 ? (
+              <Word text={this.state.text} answer={answer} onClose={this.handleClose} />
+            ) : (
+              <ListenerButton
+                onStart={this.start}
+                onEnd={this.end}
+                disabled={this.state.listening}
+                buttonText={
+                  this.state.listening ? '말해주세요!' : '하비 부르기'
+                }
+              />
+            )}
+          </div>
+          <div className="nurse">
+          <img src={IconImage} alt="icon" className="icon"/>
+          <img src={NurseImage} alt="nurse" className="nurse-icon"/>
+          <button
+            className="button"
+            onClick={()=>this.setState({nurseShow: true})}
+          >
+          간호사 부르기
+          </button>
+          </div>
+          {nurseShow && <Nurse />}
       </main>
+    
     );
   }
 }
