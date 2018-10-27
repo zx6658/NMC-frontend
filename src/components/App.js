@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import  { nmcApi } from '../api';
 import Word from './Word';
 import Nurse from './Nurse';
+import Loading from './Loading';
 import ListenerButton from './ListenerButton';
 import HospitalImage from '../assets/hospital.png';
 import IconImage from '../assets/icon.png';
@@ -19,7 +20,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    //this.getAnswer();
     const Recognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -38,8 +38,7 @@ class App extends Component {
 
     this.recognition.onresult = async event => {
       const text = event.results[0][0].transcript;
-
-      // console.log('transcript', text);
+      // const answer="";
       const answer = await this.getAnswer(text);
       this.setState({ text: text, answer: answer });
     };
@@ -99,13 +98,15 @@ class App extends Component {
   };
 
   render() {
-    const { show, nurseShow, answer, text } = this.state;
+    const { show, nurseShow, answer, text, listening } = this.state;
    
     return (
       <main className="demo-1">
         <div className="info">
-          <img src={IconImage} alt="icon" className="icon"/>
-          <img src={HospitalImage} alt="hospital" className="hospital-icon"/>
+          <div className="info-wrapper">
+            <img src={IconImage} alt="icon" className="icon"/>
+            <img src={HospitalImage} alt="hospital" className="hospital-icon"/>
+          </div>
             { show && text.length > 0 ? (
               <Word text={this.state.text} answer={answer} onClose={this.handleClose} />
             ) : (
@@ -120,8 +121,10 @@ class App extends Component {
             )}
           </div>
           <div className="nurse">
-          <img src={IconImage} alt="icon" className="icon"/>
-          <img src={NurseImage} alt="nurse" className="nurse-icon"/>
+          <div className="info-wrapper">
+            <img src={IconImage} alt="icon" className="icon"/>
+            <img src={NurseImage} alt="nurse" className="nurse-icon"/>
+          </div>
           <button
             className="button"
             onClick={()=>this.setState({nurseShow: true})}
@@ -130,6 +133,7 @@ class App extends Component {
           </button>
           </div>
           {nurseShow && <Nurse />}
+          {listening && <Loading />}
       </main>
     
     );

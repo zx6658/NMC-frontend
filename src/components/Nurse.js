@@ -1,12 +1,13 @@
 import React from 'react';
-
+import Word from './Word';
 import Slideshow from '../lib/Slideshow';
+import NurseListenerButton from './NurseListenerButton';
 import '../css/Nurse.css';
 import Constant from '../constant';
 import IconImage from '../assets/icon.png';
-import MicImage from '../assets/microphone.png';
 import ClipImage from '../assets/clip.png';
 import SendImage from '../assets/send-button.png';
+import HoviIcon from '../assets/hovi.png';
 
 class Nurse extends React.Component {
 
@@ -87,14 +88,26 @@ class Nurse extends React.Component {
     };
   }
 
+  start = () => {
+    this.recognition.start();
+  };
+
+  end = () => {
+    this.recognition.stop();
+  };
+
+  handleClose = () => {
+    this.setState({ show: false });
+  };
+
   render() {
     const { nurse } = Constant;
-    const { clicked } = this.state;
+    const { clicked,show, text } = this.state;
     return (
       <div className="nurseInfo">
       <img className="clip-icon" src={ClipImage}/>
       <div className="nurseInfo-wrapper">
-        <a href="/">
+        <a href="/NMC-frontend">
         <button className="back-button">
             뒤로가기
           </button>
@@ -110,14 +123,21 @@ class Nurse extends React.Component {
           })}
         </div>
         </div>
-        <button className="mic-button"> 
-          <img className="mic-image" src={MicImage} />
-          그 외 부탁하기
-        </button>
+        < NurseListenerButton
+          onStart={this.start}
+          onEnd={this.end}
+          disabled={this.state.listening}
+          buttonText={
+            this.state.listening ? '말해주세요!' : '그 외 부탁하기'
+          }
+        /> 
         <button className="form-button"> 
           <img className="mic-image" src={SendImage} />
           전송 하기
         </button>
+        {(show && text.length > 0) && (
+              <Word text={this.state.text} onClose={this.handleClose} answer={ {category: 'nurse', response: '하비가 간호사에게 전달해드렸습니다.'}}/>
+            )}
       </div>
     );
   }

@@ -1,0 +1,24 @@
+.loading{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-color:  #c2ceda !important;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.loading > p {
+    font-weight: 600;
+}
+
+.loading--mic-icon{
+    width: 80px;
+    height: 100px;
+}
+
+.loading--text{
+    color: black;
+}

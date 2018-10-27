@@ -3,6 +3,7 @@ import React from 'react';
 import Quiz from './Quiz';
 import Slideshow from '../lib/Slideshow';
 import '../css/Word.css';
+import HoviIcon from '../assets/hovi.png';
 
 class Word extends React.Component {
   state = {
@@ -42,6 +43,8 @@ class Word extends React.Component {
             {/* 일단은 더미데이터로 예상 질문들 만들어보기 */}
             <div className={`word word--answer`}>카테고리: {answer.category}</div>
             <div className={`word word--answer`}>A) {answer.response}</div>
+              {answer.category ==='nurse' &&  <img className="hovi-icon" src={HoviIcon} />}
+              { answer.category ==='video' && 
               <iframe allowfullscreen className={`hospitalInfo--vedio`} width="912" height="513" src="https://www.youtube.com/embed/TwOB2OiqlDg?&amp;autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>}
               { quizAvailable && <Quiz data="test"/> }
           </div>

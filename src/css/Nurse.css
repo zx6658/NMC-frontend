@@ -16,7 +16,7 @@
     border: 5px solid white;
     border-radius: 5px;
     height: 90vh;
-    width: 55vw;
+    width: 45vw;
     text-align: center;
 }
 
@@ -43,7 +43,7 @@
     color: black ;
     font-weight: bold;
     padding: .5em 1em;
-    font-size: 1.2em;
+    font-size: .8em;
     cursor: pointer;
     outline: none;
     overflow: hidden;
@@ -51,6 +51,7 @@
     border-radius: 100px;
     display: flex;
     flex-direction: row;
+    height: 40px;
 }
 
 .mic-button {
@@ -62,7 +63,7 @@
     color: black ;
     font-weight: bold;
     padding: 1em .5em;
-    font-size: 1.2em;
+    font-size: .8em;
     cursor: pointer;
     outline: none;
     overflow: hidden;
@@ -85,7 +86,7 @@
     color: black ;
     font-weight: bold;
     padding: 1em .5em;
-    font-size: 1.2em;
+    font-size: .8em;
     cursor: pointer;
     outline: none;
     overflow: hidden;
@@ -124,7 +125,7 @@
 
 
 .mic-image{
-    width: 30px;
+    width: 20px;
     margin-right: 4px;
 }
 

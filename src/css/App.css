@@ -23,7 +23,7 @@ body {
 	--color-link: #fff;
 	--color-link-hover: #fff473;
 	--color-nav: #fff;
-	background-color: #007722 !important;
+	background-color: #c2ceda !important;
 	--color-bg-slide-1: linear-gradient(to right, #232526, #414345);
 	display: flex;
 	justify-content: center;
@@ -47,6 +47,12 @@ body {
 	width: 100%;
 }
 
+.info-wrapper{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .nurse > button{
 	width: 100%;
 }
@@ -67,7 +73,7 @@ a:focus {
   margin-top: 10px;
   position: relative;
   appearance: none;
-  border: #007722  2px solid !important;
+  border: #c2ceda  2px solid ;
   background-color: white;
   color: black ;
   font-weight: bold;
