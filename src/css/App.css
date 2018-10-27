@@ -103,6 +103,12 @@ a:focus {
 .button:hover::before {
   --size: 400px;
 }
+.hospitalInfo--vedio{
+	height: 200px;
+    width: 500px;
+    margin: auto;
+    display: block;
+}
 
 .hospital-icon, .nurse-icon{
 	width: 150px;
